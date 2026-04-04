@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: roboshop
+data:
+  APP_ENV: dev
+  APP_DEBUG: "true"
+  APP_PORT: "8080"
+  course: "kubernetes"
+  duration: "2 months"
+  trainser: "devops"
