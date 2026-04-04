@@ -12,3 +12,7 @@ spec:
   containers:
   - name: nginx
     image: nginx:latest
+
+#ImagePullBackOff/ErrorImagePull-> When the node is not able to pull the image from the registry.
+#This can happen due to various reasons such as incorrect image name, missing image, or issues with the registry.
+#CrashLoopBackOff -> When the container is not able to start successfully and keeps crashing.

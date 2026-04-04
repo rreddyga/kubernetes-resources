@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resoruces-demo
+  namespace: roboshop
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    #soft limit -> It is the amount of resources that a container can use without any restrictions. 
+    #If the container exceeds this limit, it may be throttled but it will
+    resources:
+      requests:
+        # Ram requested by the container. It is the amount of memory that a container is guaranteed to have. 
+        #If the node does not have enough memory to fulfill the request, the pod will not be scheduled.
+        memory: "64Mi"
+        cpu: "100m"
+      #hard limit -> It is the maximum amount of resources that a container can use. 
+      #If the container exceeds this limit, it will be terminated.
+      limits:
+        memory: "128Mi"
+        cpu: "150m"

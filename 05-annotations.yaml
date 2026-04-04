@@ -1,0 +1,24 @@
+#annoations are used  to provide metadata to objects. They are not used as selectors like labels. but they can be 
+#used to store arbitrary data that can be used by tools and libraries and external resources like load balancers.
+
+# lables has limitations on the size and number of key-value paris that can be used.
+#Annotations do not have such limitations and can be used to store large amounts of data. 
+#They are also not used as selectors like labels.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: labels-demo
+  namespace: roboshop
+  #Labels are used to provide metadata to objects. They act a selectors to identify a set of objects.
+  labels:
+    project: roboshop
+    component: frontend
+    environment: dev
+  #consumed by external resources like load balancers, helm charts, and other tools and libraries, ingress controllers, monitoring toools.
+  annotations:
+    imageregistry: "https://hub.docker.com"
+    jenkins: "https://jenkins.roboshop.internal"
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
