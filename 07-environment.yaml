@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: roboshop
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    env:
+    - name: ENVIRONMENT
+      value: dev
+    - name: PROJECT
+      value: roboshop
+    - name: COMPONENT
+      value: frontend
+    - name: PURPOSE
+      value: poc
+
+#Environment variables are used to pass configuration data to containers. They can be used to store sensitive information such as database credentials, API keys, etc.
