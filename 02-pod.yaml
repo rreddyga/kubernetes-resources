@@ -1,0 +1,13 @@
+#Pod is smallest deployable unit in kubernetes. It can have one or more containers. 
+#Containers in a pod share the same network and storage.
+#They are always co-located and co-scheduled, and run in a shared context.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
