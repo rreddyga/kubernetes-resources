@@ -1,5 +1,5 @@
 #ReplicaSet is a controller which ensures that a specified number of pod replicas are running at any given time.
-apiVersion: v1
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: nginx
