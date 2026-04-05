@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ReplicaSet
 metadata:
-  name: nginx-replicaset
+  name: nginx
   #these are required labels for replicaset to identify the pods it manages. 
   #These labels should match the labels defined in the pod template.
   labels:
