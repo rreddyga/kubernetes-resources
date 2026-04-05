@@ -11,6 +11,8 @@ metadata:
     component: frontend
     environment: dev
     purpose: deployment-demo
+  annotations:
+    kubernetes.io/change-cause: "Initial deployment of nginx application from 1.29"
 spec:
   replicas: 3 #number of pod replicas to be maintained
   selector:
@@ -32,4 +34,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: nginx:1.29
