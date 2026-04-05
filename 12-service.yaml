@@ -16,3 +16,11 @@ spec:
   - protocol: TCP
     port: 80 # service port
     targetPort: 80 # container port
+    #services are of four types:
+    #1. ClusterIP: It is the default type of service. It exposes the service on a cluster-internal IP. 
+    # It is only accessible within the cluster.
+    #2. NodePort: It exposes the service on each node's IP at a static port. It is accessible from outside the cluster 
+    #using <NodeIP>:<NodePort>.
+    #3. LoadBalancer: It exposes the service externally using a cloud provider's load balancer. 
+    #It is accessible from outside the cluster using the load balancer's IP address.
+    #4. ExternalName: It maps the service to the contents of the externalName field.

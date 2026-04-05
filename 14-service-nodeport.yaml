@@ -1,0 +1,18 @@
+#NodePort service exposes the service on each node's IP at a static port. 
+#It is accessible from outside the cluster using <NodeIP>:<NodePort>.
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-nodeport
+spec:
+  #NodePort service exposes the service on each node's IP at a static port. 
+  #It is accessible from outside the cluster using <NodeIP>:<NodePort>.
+  type: NodePort
+  selector:
+    project: roboshop
+    component: frontend
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # container port
