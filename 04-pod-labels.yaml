@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: labels-demo
-  namespace: roboshop
+  #namespace: roboshop
   #Labels are used to provide metadata to objects. They act a selectors to identify a set of objects.
   labels:
     project: roboshop
