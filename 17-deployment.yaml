@@ -1,0 +1,35 @@
+#Deploymen is a higher level abstraction that manages ReplicaSets and provides declarative updates to applications.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  #these are required labels for replicaset to identify the pods it manages. 
+  #These labels should match the labels defined in the pod template.
+  labels:
+    project: roboshop
+    component: frontend
+    environment: dev
+    purpose: replicaset-demo
+spec:
+  replicas: 3 #number of pod replicas to be maintained
+  selector:
+    #using these labels the replicaset will identify the pods it manages.
+    matchLabels:
+      project: roboshop
+      component: frontend
+      environment: dev
+      purpose: replicaset-demo
+  #This is the pod template which defines the pod specification. 
+  #The replicaset will create pods based on this template.
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: frontend
+        environment: dev
+        purpose: replicaset-demo
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:9
