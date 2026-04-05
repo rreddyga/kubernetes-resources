@@ -1,0 +1,10 @@
+#service test file
+apiVersion: v1
+kind: Pod
+metadata:
+  name: svc-test
+spec:
+  containers:
+  - name: almalinux
+    image: almalinux:latest
+    command: [ "sleep", "1000" ]
