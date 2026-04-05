@@ -1,0 +1,18 @@
+#if we want to communicat with two pods we need to create a service.
+#ip address of the pods are not static so we need to create a service to communicate with the pods. 
+#service will have a static ip address and it will forward the traffic to the pods.
+#and loading balance the traffic between the pods.
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    #label are used as a selectors to select the pods which are running nginx.
+    project: roboshop
+    component: frontend
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # container port
