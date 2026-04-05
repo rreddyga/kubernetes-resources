@@ -10,7 +10,7 @@ metadata:
     project: roboshop
     component: frontend
     environment: dev
-    purpose: replicaset-demo
+    purpose: deployment-demo
 spec:
   replicas: 3 #number of pod replicas to be maintained
   selector:
@@ -19,16 +19,16 @@ spec:
       project: roboshop
       component: frontend
       environment: dev
-      purpose: replicaset-demo
+      purpose: deployment-demo
   #This is the pod template which defines the pod specification. 
-  #The replicaset will create pods based on this template.
+  #The deployment will create pods based on this template.
   template:
     metadata:
       labels:
         project: roboshop
         component: frontend
         environment: dev
-        purpose: replicaset-demo
+        purpose: deployment-demo
     spec:
       containers:
       - name: nginx
