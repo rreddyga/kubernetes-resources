@@ -12,7 +12,7 @@ metadata:
     environment: dev
     purpose: deployment-demo
   annotations:
-    kubernetes.io/change-cause: "Initial deployment of nginx application from 1.29"
+    kubernetes.io/change-cause: "Initial deployment of nginx application from 1.29.7"
 spec:
   replicas: 3 #number of pod replicas to be maintained
   selector:
@@ -34,4 +34,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.29
+        image: nginx:1.29.7
