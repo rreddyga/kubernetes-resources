@@ -7,6 +7,8 @@ metadata:
 spec:
   #NodePort service exposes the service on each node's IP at a static port. 
   #It is accessible from outside the cluster using <NodeIP>:<NodePort>.
+  #clusterIP is a subset of NodePort.
+  #port range for NodePort is 30000-32767.
   type: NodePort
   selector:
     project: roboshop
@@ -16,3 +18,4 @@ spec:
   - protocol: TCP
     port: 80 # service port
     targetPort: 80 # container port
+    nodePort: 30005
