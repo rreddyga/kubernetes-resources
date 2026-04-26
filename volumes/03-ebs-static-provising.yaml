@@ -70,3 +70,5 @@ spec:
   #kubectl delete pvc ebs-claim
   #kubectl delete pv ebs-static-provisioning
 
+  #I need to continue April 8th session from timing 1:25:08 
+
