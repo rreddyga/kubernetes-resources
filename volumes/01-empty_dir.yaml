@@ -9,7 +9,7 @@ spec:
     volumeMounts:
     - mountPath: /var/log/nginx
       name: nginx-logs
-  #acts like a sidegar container
+  #acts like a sidecar container
   - image: almalinux
     name: almalinux
     command: [ "sleep", "2000" ]
