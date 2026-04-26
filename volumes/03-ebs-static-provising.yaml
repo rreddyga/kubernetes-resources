@@ -46,13 +46,27 @@ spec:
     image: nginx
     volumeMounts:
     - name: html-data
-      mountPath: /usr/share/nginx/html
+      mountPath: /usr/share/nginx/htm
+  #
+  nodeSelector:
+    topology.kubernetes.io/zone: "us-east-1d"
+
   volumes:
   - name: html-data
     persistentVolumeClaim:
       claimName: ebs-claim
+  #commands to to check the pv, pvc
+  #kubectl apply -f 03-ebs-static-provising.yaml
+  #kubectl get pv
+  #kubectl get pvc
 
-#commands to to check the pv, pvc
-#kubectl apply -f 03-ebs-static-provising.yaml
-#kubectl get pv
-#kubectl get pvc
+  #describe pvc es-claim
+  #  kubectl describe pv
+  #   kubectl apply -f 03-ebs-static-provising.yaml
+
+  #kubectl api-resources | grep pv
+  #kubectl api-resources
+  #kubecl delete pod nginx
+  #kubectl delete pvc ebs-claim
+  #kubectl delete pv ebs-static-provisioning
+
