@@ -1,0 +1,24 @@
+#https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/examples/kubernetes/static-provisioning/manifests/pv.yaml
+# manually created the volume  below is volum id
+#vol-0664bf166b9e2c7b0
+# Copyright 2024 The Kubernetes Authors.
+# we need to install the CSI drivers from the official repos
+#https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/install.md
+#kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.59"
+# once we install the driver the kubernetes cluster will speak with ebs-csi-drivers
+#attach AmazonCBSCSIDriverPolicy to the workernod IAM  role to  provide authorization
+# after the we need to create.
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ebs-static-provisioning
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4
+    volumeHandle: vol-0664bf166b9e2c7b0
