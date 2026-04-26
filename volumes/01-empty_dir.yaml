@@ -12,7 +12,7 @@ spec:
   #acts like a sidegar container
   - image: almalinux
     name: almalinux
-    command: [ "sleep", "100" ]
+    command: [ "sleep", "2000" ]
     volumeMounts:
     - mountPath: /mnt/nginx-logs
       name: nginx-logs
