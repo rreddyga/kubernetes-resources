@@ -1,0 +1,9 @@
+#This storage class is used to create ebs volumes dynamically when we create pvc.
+#this is one time setup, after that we can create pvc and pv will be created dynamically by the storage class.
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: roboshop-ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Retain
