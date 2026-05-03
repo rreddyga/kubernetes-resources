@@ -1,0 +1,24 @@
+#install efs drivers by following the below office github link
+# here is the command to install the drivers 
+#kubectl kustomize \
+#"github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-3.X" > private-ecr-driver.yaml
+# ant attach AmazonEFSCSIDriverPolicy to the workernod IAM  role to  provide authorization
+# I think we need to add nfs port in the security group of worker nodes to allow communication between worker nodes
+#   and efs server 
+# after the we need to create pv and pvc for efs volume
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: efs-static
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: "" # should be empty to avoid dynamic provisioning
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: efs:fs-0efb7a70688baa7ef
