@@ -7,6 +7,8 @@
 #   and efs server 
 # after the we need to create pv and pvc for efs volume
 
+#offical github link for  pv,pvc for efs https://github.com/kubernetes-sigs/aws-efs-csi-driver/tree/master/examples/kubernetes/efs/static_provisioning/specs
+
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -22,3 +24,17 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: efs:fs-0efb7a70688baa7ef
+
+#persistent volume claim for efs volume
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-static-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: "" # should be empty to avoid dynamic provisioning
+  resources:
+    requests:
+      storage: 5Gi
