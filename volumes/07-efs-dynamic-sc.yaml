@@ -1,12 +1,16 @@
 #official githhub repo for efs strorage class 
 #https://github.com/kubernetes-sigs/aws-efs-csi-driver/tree/master/examples/kubernetes/efs/dynamic_provisioning/specs
 
-kind: StorageClass
 apiVersion: storage.k8s.io/v1
+kind: StorageClass
 metadata:
   name: roboshop-efs
 provisioner: efs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
   fileSystemId: fs-04e93934109e70ea8
-  basePath: "/roboshop" # optional
+  basePath: "/roboshop"
+  directoryPerms: "755" # ✅ ADD THIS
+  gidRangeStart: "1000" # ✅ Optional but recommended
+  gidRangeEnd: "2000"
+reclaimPolicy: Delete
