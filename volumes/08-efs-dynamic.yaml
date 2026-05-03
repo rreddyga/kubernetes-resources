@@ -25,3 +25,28 @@ spec:
   - name: html-data
     persistentVolumeClaim:
       claimName: efs-dynamic-claim
+
+#list of commands to check 
+# kubectl delete -f 08-efs-dynamic.yaml
+# kubectl apply -f 07-efs-dynamic-sc.yaml
+# kubectl get sc
+# kubectl apply -f 08-efs-dynamic.yaml
+# kubectl get pvc
+# kubectl get pods
+# kubectl get pods
+# kubectl describe pod efs-app
+# kubectl get pvc
+# kubectl describe pvc efs-dynamic-claim
+# kubectl get sc
+# kubectl describe sc roboshop-efs
+# git pull
+# kubectl delete -f 07-efs-dynamic-sc.yaml
+# kubectl delete -f 08-efs-dynamic.yaml
+# kubectl apply -f 07-efs-dynamic-sc.yaml
+# kubectl apply -f 08-efs-dynamic.yaml
+# kubectl get sc
+# kubectl get pvc
+# kubectl get pv
+# kubectl get pods
+# kubectl delete -f 08-efs-dynamic.yaml
+# kubectl delete -f 07-efs-dynamic-sc.yaml
