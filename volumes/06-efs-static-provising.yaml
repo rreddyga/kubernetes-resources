@@ -23,9 +23,10 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: efs:fs-0efb7a70688baa7ef
+    volumeHandle: efs:fs-0efb7a70688baa7ef # some times efs: is not required, it depends on the efs driver version,
+    # if you get error like volume handle is invalid then remove efs: from the volume handle and try again.
 
-#persistent volume claim for efs volume
+    #persistent volume claim for efs volume
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
