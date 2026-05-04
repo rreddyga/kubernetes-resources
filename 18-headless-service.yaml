@@ -39,8 +39,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-headless
 spec:
+  clusterIP: None # This makes the service headless, meaning it won't get a cluster IP and will instead return the 
+  #IPs of the individual pods. 
   selector:
     #by default the service type is ClusterIP. It exposes the service on a cluster-internal IP.
     #label are used as a selectors to select the pods which are running nginx.
