@@ -1,0 +1,53 @@
+#Deploymen is a higher level abstraction that manages ReplicaSets and provides declarative updates to applications.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  #these are required labels for replicaset to identify the pods it manages. 
+  #These labels should match the labels defined in the pod template.
+  labels:
+    project: roboshop
+    component: frontend
+    environment: dev
+    purpose: deployment-demo
+  annotations:
+    kubernetes.io/change-cause: "Initial deployment of nginx application from 1.29.7"
+spec:
+  replicas: 4 #number of pod replicas to be maintained
+  selector:
+    #using these labels the replicaset will identify the pods it manages.
+    matchLabels:
+      project: roboshop
+      component: frontend
+      environment: dev
+      purpose: deployment-demo
+  #This is the pod template which defines the pod specification. 
+  #The deployment will create pods based on this template.
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: frontend
+        environment: dev
+        purpose: deployment-demo
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.29.7
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    #by default the service type is ClusterIP. It exposes the service on a cluster-internal IP.
+    #label are used as a selectors to select the pods which are running nginx.
+    project: roboshop
+    component: frontend
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # container port
